@@ -11,7 +11,7 @@ public class addition {
         int first = sc.nextInt();
         System.out.println("Enter second number");
         int second = sc.nextInt();
-        System.out.println(first+second);
+        System.out.println("Result is " + (first+second));
 
     }
 }
