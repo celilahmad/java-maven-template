@@ -6,72 +6,68 @@ import java.util.Scanner;
 public class HelloWorldApp {
 
     public static void main(String[] args) {
-
-
-        int height = 6;
-        int width = 6;
-        int[][] square = new int[height][width];
-
-        int guess1 = 0;
-        int guess2 = 0;
-        //String[][] game = new String[10][10];
-
-        int randomLine = (int)(Math.random()*5+0.5);
-        int randomColumn = (int)(Math.random()*5+0.5);
-        int[][] rand = new int[randomLine][randomColumn];
-
-
-
-
-        //if (guess1=rand[][])
-
-
-
-
-        boolean con = true;
+        boolean guessed=true;
         Scanner sc = new Scanner(System.in);
-        while (con){
-            for (int i = 0; i < width; i++) {
-                if (i == 0) {
-                    System.out.print(i + "|");
-                } else {
-                    System.out.print(" " + i + " |");
-                }
+        int rl = (int)(Math.random()*5 );
+        int rc = (int)(Math.random()*5 );
+        String [][]box = new String[5][5];
+
+        /*for (int i = 0; i < 6; i++) {
+            if (i == 0) {
+                System.out.print(i + "|");
+            } else {
+
+                System.out.print(" " + i + " |");
+            }
+
+        }*/
+        System.out.println();
+        for(int i=0;i<box.length;i++) {
+            //System.out.print(i+1+ "|");
+            for(int j=0;j<box[i].length;j++) {
+                box[i][j]=" - ";
+                System.out.print(" - ");
             }
             System.out.println();
-            for (int x = 1; x < square.length; x++) {
-                System.out.print(x);
-                for (int y = 0; y < square.length - 1; y++) {
+        }
+        System.out.println("Correct row colum is " + (rl+1)+" " + (rc+1));
 
-                    System.out.print("| - ");
-                }
+        int guessedRow = 0;
+        int guessedCol = 0;
+        while(guessed) {
 
-                System.out.println("|");
-            }
+            box[rl][rc]=" x ";
             System.out.println("Enter row and column");
-            guess1 = sc.nextInt();
+            guessedRow=sc.nextInt()-1;
             //System.out.println("Enter column");
-            guess2 = sc.nextInt();
-            int [][] array = new int[guess1][guess2];
-            if (array==rand){
-                System.out.println("you won");
-            }
+            guessedCol=sc.nextInt()-1;
 
-            //int [][] array = new int[guess1][guess2];
 
-         /*   if (guess1>0 && guess1 <6 && guess2>0 && guess2<6){
 
-                if (guess1==randomLine && guess2==randomColumn){
-                    System.out.println("Congrats you won");
-                    con=false;
-                }else{
-                    System.out.println("Try again");
-
+            if(box[guessedRow][guessedCol]==" x ") {
+                for(int i=0;i<box.length;i++) {
+                    for(int j=0;j<box[i].length;j++) {
+                        System.out.print(box[i][j]);
+                    }
+                    System.out.println();
                 }
-            }*/
-
+                System.out.println("You have won");
+                guessed=false;
+                //System.exit(0);
+            }else {
+                box[guessedRow][guessedCol]=" * ";
+                box[rl][rc]=" - ";
+                for(int i=0;i<box.length;i++) {
+                    for(int j=0;j<box[i].length;j++) {
+                        System.out.print(box[i][j]);
+                    }
+                    System.out.println();
+                }
+            }
 
         }
+
+
 
     }
 
