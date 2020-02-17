@@ -1,7 +1,6 @@
 package app;
 
 
-
 import java.util.Scanner;
 
 public class newPorject {
@@ -31,17 +30,17 @@ public class newPorject {
         schedule[6][1] = "Relax whole day";
 
         Scanner sc = new Scanner(System.in);
-        //System.out.println("Please enter day of the week");
-        //String task = sc.nextLine();
+
         String beginning = "Your task for ";
         boolean test = false;
-        //String task1="";
+        String exit = "Exit";
 
-        while (test==false) {
+        while (test == false) {
             System.out.println("Please enter day of the week");
-            String task = sc.nextLine();
-            //task.toLowerCase();
-            //task1.equalsIgnoreCase(task);
+            String task1 = sc.nextLine().trim();
+            String task = task1.substring(0, 1).toUpperCase() + task1.substring(1).toLowerCase();
+
+
             if (task.equals(schedule[0][0]) || task.equals(schedule[1][0]) || task.equals(schedule[2][0]) || task.equals(schedule[3][0])
                     || task.equals(schedule[4][0]) || task.equals(schedule[5][0]) || task.equals(schedule[6][0])) {
 
@@ -68,17 +67,17 @@ public class newPorject {
                         System.out.println(beginning + task + " " + schedule[0][1]);
                         break;
                 }
-            } else if (task.equals("exit")) {
-                test=true;
-            } else {
+            } else if (task.equals(exit)) {
+                test = true;
+            }/*else if (task.equals("change" + schedule[0][0])) {
+                System.out.println("Please, input new tasks for Monday");
+                String task2 = sc.nextLine();
+                task2.replaceAll(task,task2);
+            }*/else {
                 System.out.println("Sorry, I don't understand you, please try again.");
             }
         }
-        /*WILL
-        BE
-        UPDATED
-        TO CASE SENSITIVE
-        SOON!     */
+
     }
 
 
