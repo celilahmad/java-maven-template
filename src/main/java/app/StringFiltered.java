@@ -42,9 +42,11 @@ public class StringFiltered {
             else consonants1.append(s);
         }
 
-        //System.out.println(random);
+        System.out.println(random);
         System.out.println(vowels.toString());
         System.out.println(consonants.toString());
+
+        System.out.println(random1);
         System.out.println(vowel1.toString());
         System.out.println(consonants1.toString());
     }
