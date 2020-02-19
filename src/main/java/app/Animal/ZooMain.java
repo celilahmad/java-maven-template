@@ -4,13 +4,13 @@ public class ZooMain {
 
     public static void main(String[] args) {
 
-        Dog dog = new Dog();
-        dog.name= "Mick";
-        Dog dog1 = new Dog();
-        dog1.name="Toplan";
+        Dog dog = new Dog("mick");
 
-        Cat cat = new Cat();
-        cat.name="Johny";
+        Dog dog1 = new Dog("toplan");
+
+
+        Cat cat = new Cat("johny");
+
 
         System.out.println(dog);
         System.out.println(dog1);
