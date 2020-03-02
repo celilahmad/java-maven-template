@@ -5,6 +5,23 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RandomIntApp {
+    public static void main(String[] args) throws IOException {
+
+        List<Integer> radoms = generate(100, 30, -30);
+        String.valueOf(radoms);
+
+        List<String> newStr = convertSi(radoms);
+        write(newStr, "file1.txt");
+
+        List<String> randoms2 = read("file1.txt");
+        List<Integer> convert = convert(randoms2);
+        List<Integer> sorted_randoms = sorting(convert);
+        List<String> sorted_randomss = convertSi(sorted_randoms);
+        write(sorted_randomss, "file2.txt");
+
+
+    }
+
     public static List<Integer> generate(int length, int plus, int minus) {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < length; i++) {
@@ -33,22 +50,7 @@ public class RandomIntApp {
         return lines;
     }
 
-    public static void main(String[] args) throws IOException {
 
-        List<Integer> radoms = generate(100, 30, -30);
-        String.valueOf(radoms);
-
-        List<String> newStr = convertSi(radoms);
-        write(newStr, "file1.txt");
-
-        List<String> randoms2 = read("file1.txt");
-        List<Integer> convert = convert(randoms2);
-        List<Integer> sorted_randoms = sorting(convert);
-        List<String> sorted_randomss = convertSi(sorted_randoms);
-        write(sorted_randomss, "file2.txt");
-
-
-    }
 
     private static List<String> convertSi(List<Integer> sorted_randoms) {
         List<String> list = new ArrayList<>();
