@@ -21,7 +21,7 @@ public class SentenceApp {
     }
     public static void main(String[] args) throws IOException {
 
-        List<String> subj = read("subj_verb_.txt");
+        List<String> subj = read("sj_verb_.txt");
         List<String> verb = read("verb_obj_.txt");
 
         List<String> sentence= new ArrayList<>();
@@ -58,7 +58,7 @@ public class SentenceApp {
     }
 
 
-     private static List<String> read(String filename) throws FileNotFoundException {
+    /* private static List<String> read(String filename) throws FileNotFoundException {
         File file = new File(filename);
         if(file.exists()){
              FileReader fr = new FileReader(file);
@@ -66,8 +66,21 @@ public class SentenceApp {
              return br.lines().collect(Collectors.toList());
          }
         else {
-            throw  new FileNotFoundException("File not found. Try again");
+            throw  new FileNotFoundException("File not found. Try again ");
         }
+    }*/
+    private static List<String> read(String filename) throws FileNotFoundException {
+
+        try {
+            File file = new File(filename);
+            FileReader fr = new FileReader(file);
+            BufferedReader br = new BufferedReader(fr);
+            return br.lines().collect(Collectors.toList());
+        } catch (FileNotFoundException e) {
+            throw  new FileNotFoundException("File not found. Try again ");
+        }
+
+
     }
 
     private static void write(List<String> st) throws IOException {
