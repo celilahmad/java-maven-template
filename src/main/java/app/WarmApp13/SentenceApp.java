@@ -60,9 +60,14 @@ public class SentenceApp {
 
      private static List<String> read(String filename) throws FileNotFoundException {
         File file = new File(filename);
-        FileReader fr = new FileReader(file);
-        BufferedReader br = new BufferedReader(fr);
-        return br.lines().collect(Collectors.toList());
+        if(file.exists()){
+             FileReader fr = new FileReader(file);
+             BufferedReader br = new BufferedReader(fr);
+             return br.lines().collect(Collectors.toList());
+         }
+        else {
+            throw  new FileNotFoundException("File not found. Try again");
+        }
     }
 
     private static void write(List<String> st) throws IOException {
