@@ -21,7 +21,7 @@ public class SentenceApp {
     }
     public static void main(String[] args) throws IOException {
 
-        List<String> subj = read("sj_verb_.txt");
+        List<String> subj = read("subj_verb_.txt");
         List<String> verb = read("verb_obj_.txt");
 
         List<String> sentence= new ArrayList<>();
@@ -84,11 +84,16 @@ public class SentenceApp {
     }
 
     private static void write(List<String> st) throws IOException {
-         BufferedWriter bw = new BufferedWriter(new FileWriter("sentence.txt"));
-         for (String s : st){
-             bw.write(s);
-             bw.write("\n");
-         }
-         bw.close();
+        try{
+            BufferedWriter bw = new BufferedWriter(new FileWriter("sentence.txt"));
+            for (String s : st){
+                bw.write(s);
+                bw.write("\n");
+            }
+            bw.close();
+        } catch (IOException e){
+            throw new IOException("File cant write");
+        }
+
     }
 }
