@@ -6,7 +6,7 @@ public class Formatter1 implements Formatter{
 
     @Override
     public String print(String s){
-        System.out.println(s);
+
         return s;
     }
 
@@ -15,7 +15,6 @@ public class Formatter1 implements Formatter{
 
     public Formatter1(String s) {
         this.s = s;
-        String.format(s);
     }
 
     @Override

@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class FormatterApp {
 
-    public static String print(String s, Formatter f){
+    public static void print(String s, Formatter f){
 
-        return f.print(s);
+        System.out.println(f.print(s));
 
     }
     public static void main(String[] args) {
@@ -15,9 +15,14 @@ public class FormatterApp {
         Formatter ftm2 = new Formatter2();
         Formatter ftm3 = new Formatter3();
 
-        ftm1.print("hello");
+
+        /*ftm1.print("hello");
         ftm2.print("hello");
-        ftm3.print("hello");
+        ftm3.print("hello");*/
+
+        System.out.println(ftm1.print("hello"));
+        System.out.println(ftm2.print("hello"));
+        System.out.println(ftm3.print("hello"));
 
        print("hello", ftm1);
        print("hello", ftm2);

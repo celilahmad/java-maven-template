@@ -4,23 +4,24 @@ public class StringFiltered {
     public static void main(String[] args) {
         final String VOW = "AEOIU";
         final String vow="aeoiu";
+
         int range = ('Z'-'A' + 1);
-        int range1=('z' -'a' +1);
+        //int range1=('z' -'a' +1);
         int start = 'A';
-        int start1='a';
+        //int start1='a';
         StringBuilder rand_s = new StringBuilder();
         StringBuilder rand_n= new StringBuilder();
         for (int i = 0; i < 30; i++) {
-            char letter = (char) (Math.random() * range + start);
-            char letter1=(char)(Math.random()* range1+start1);
+            char letter = (char) (Math.random() * range + start+ 32* ((int)(Math.random())*2));
+            //char letter1=(char)(Math.random()* range1+start1);
             rand_s.append(letter);
-            rand_n.append(letter1);
+            //rand_n.append(letter1);
         }
 
 
 
         String random = rand_s.toString();
-        String random1 = rand_n.toString();
+        //String random1 = rand_n.toString();
 
         StringBuilder vowel1= new StringBuilder();
         StringBuilder consonants1 = new StringBuilder();
@@ -35,8 +36,8 @@ public class StringFiltered {
                 consonants.append(c);
         }
 
-        for (int i = 0; i < random1.length(); i++) {
-            char s = random1.charAt(i);
+        for (int i = 0; i < random.length(); i++) {
+            char s = random.charAt(i);
             if (vow.contains(String.valueOf(s))) vowel1.append(s);
 
             else consonants1.append(s);
@@ -46,7 +47,7 @@ public class StringFiltered {
         System.out.println(vowels.toString());
         System.out.println(consonants.toString());
 
-        System.out.println(random1);
+
         System.out.println(vowel1.toString());
         System.out.println(consonants1.toString());
     }

@@ -6,8 +6,7 @@ public class Formatter3 implements Formatter{
 
     @Override
     public String print(String s) {
-        System.out.println("*************\n****" + s.toUpperCase() + "****\n*************");
-        return s;
+        return "*************\n****" + s.toUpperCase() + "****\n*************";
     }
 
     public Formatter3() {

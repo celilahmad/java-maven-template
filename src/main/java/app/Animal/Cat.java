@@ -6,6 +6,7 @@ public class Cat extends Animal{
         super(name);
     }
 
+    @Override
     public String toString() {
         return "I'm cat. My name is '" + name + '\'';
     }
