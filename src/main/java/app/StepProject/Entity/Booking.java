@@ -3,6 +3,8 @@ package app.StepProject.Entity;
 import org.graalvm.compiler.lir.LIRInstruction;
 
 import java.io.*;
+import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class Booking extends User{
 
@@ -23,10 +25,18 @@ public class Booking extends User{
         count++;
     }
 
-    public void getBookingId
-
-    public void cancelBooking(int id) throws FileNotFoundException {
+    public Collection<Booking> getAllBooking() throws FileNotFoundException {
         BufferedReader br = new BufferedReader(new FileReader(new File("booking.txt")));
+        br.lines().collect(Collectors.toList());
+    }
 
+
+    public void cancelBooking(int id) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(new File("booking.txt")));
+        String[] arr= br.readLine().split(":");
+        if (Integer.parseInt(arr[0])==id){
+
+        }
+        Collection<Booking> students = getAllBooking(s -> s.id != id);
     }
 }
