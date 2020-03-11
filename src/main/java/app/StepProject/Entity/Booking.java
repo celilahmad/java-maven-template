@@ -1,24 +1,32 @@
 package app.StepProject.Entity;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import org.graalvm.compiler.lir.LIRInstruction;
+
+import java.io.*;
 
 public class Booking extends User{
 
     private int id;
 
-    public Booking(int id, String name, String surname) {
-        super(id, name, surname);
+
+    public Booking(String name, String surname) {
+        super(name, surname);
     }
 
-    public void createBooking(String s) throws IOException {
-        if(s.toLowerCase().trim() == "yes"){
-            BufferedWriter bw = new BufferedWriter(new FileWriter(new File("booking.txt")));
-            bw.write(String.valueOf(new User(this.id, name, surname)));
-        }
+    int count =1;
+    public void write(String name, String lastname) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(new File("booking.txt")));
+        bw.write(count + ":");
+        bw.write(String.valueOf(new User(name, lastname)));
+        bw.write("\n");
+        bw.close();
+        count++;
     }
 
-    public void cancelBooking()
+    public void getBookingId
+
+    public void cancelBooking(int id) throws FileNotFoundException {
+        BufferedReader br = new BufferedReader(new FileReader(new File("booking.txt")));
+
+    }
 }

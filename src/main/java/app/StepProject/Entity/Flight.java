@@ -10,10 +10,13 @@ public class Flight {
 
     private final Map<Integer, Flight> storage = new HashMap<>();
 
-    final int id;
-    final String destination;
-    final int seats;
-    final LocalDateTime date;
+    private int id;
+    private String destination;
+    private int seats;
+    private LocalDateTime date;
+
+    public Flight() {
+    }
 
     public Flight(int id, String destination, int seats, LocalDateTime date) {
         this.id = id;
@@ -43,12 +46,44 @@ public class Flight {
         for(int i =0; i<20; i++) {
             list.add(br.readLine().charAt((int)(Math.random()*21)));
         }
-        return list;
+        //return list;
     }
     /*public static List<Flight> allFlights(String s) throws FileNotFoundException {
         BufferedReader br =  new BufferedReader(new FileReader(new File(s)));
         return br.lines().map(Flight::parse).collect(Collectors.toList());
     }*/
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    public int getSeats() {
+        return seats;
+    }
+
+    public void setSeats(int seats) {
+        this.seats = seats;
+    }
+
+    public LocalDateTime getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDateTime date) {
+        this.date = date;
+    }
 
     public String represent() {
         return String.format("%d:%s:%d:%d", id, destination, seats,date);
@@ -57,5 +92,7 @@ public class Flight {
     public String toString() {
         return String.format("Student[id=%d, name='%s', age=%d, date=%d]", id, destination, seats, date);
     }
+
+
 
 }
