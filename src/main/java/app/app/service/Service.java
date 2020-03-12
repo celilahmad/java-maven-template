@@ -9,13 +9,11 @@ import app.app.entity.Flight;
 import app.app.io.ConsoleMain;
 
 import java.io.FileNotFoundException;
-import java.util.function.Predicate;
+
 
 
 public class Service {
-  ConsoleMain con;
   DAO<Flight> dao = new DaoFlight("src/main/java/app/app/allFlights.txt");
-  DAO<Booking> bookingDAO = new DAOBooking();
   DAOBooking daoBooking;
 
   public Service(DAOBooking daoBooking) {
@@ -31,12 +29,13 @@ public class Service {
     System.out.println(s);
   }
 
-  public void booking(String destination, String date, int seats) {
-    System.out.println(dao.getAllBy(p->((p.destination.equals(destination)&&p.date.equals(date))&&Integer.parseInt(p.seats)>seats)));
+  public String booking(String destination, String date, int seats) {
+    //System.out.println(dao.getAllBy(p->((p.destination.equals(destination)&&p.date.equals(date))&&Integer.parseInt(p.seats)>seats)));
+    return dao.getAllBy(p->((p.destination.equals(destination)&&p.date.equals(date))&&Integer.parseInt(p.seats)>seats)).toString();
 
   }
 
-  public void write(String name, String surname) {
-    bookingDAO.create(new Booking(name, surname));
+  public void create(int id,String name, String surname) {
+    daoBooking.create(new Booking(id,name, surname));
   }
 }

@@ -34,16 +34,21 @@ public class Controller {
     String date = console.readLn();
     System.out.println("How many ticket");
     int tickets = Integer.parseInt(console.readLn());
-    service.booking(des,date,tickets);
-    System.out.println("Would you like to book");
+    if (service.booking(des,date,tickets).length()<3) {
+        System.out.println("There is no flights for your search criteria:");
+    }else { System.out.println(service.booking(des,date,tickets));}
+        System.out.println("Would you like to book");
 
     String yes = console.readLn();
     if (yes.toLowerCase().trim().equals("yes")){
+      System.out.println("Enter id");
+      int id = Integer.parseInt(console.readLn());
       System.out.println("Enter name");
       String name = console.readLn();
       System.out.println("Enter surname");
       String surname=console.readLn();
-      service.write(name, surname);
+      service.create(id,name, surname);
+      System.out.println("Processed");
     }else {
       System.out.println("Returning to main menu");
 

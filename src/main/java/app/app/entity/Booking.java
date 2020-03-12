@@ -2,13 +2,21 @@ package app.app.entity;
 
 import java.util.List;
 
-public class Booking {
+public class Booking extends Person{
   public int user_id;
   List<Person> people;
   int flight_id;
   public Person person;
 
-  public Booking() {
+  public Booking(int user_id,String first, String last) {
+    super(first, last);
+    this.user_id=user_id;
+  }
+
+
+
+
+  /* public Booking() {
   }
 
 
@@ -23,7 +31,7 @@ public class Booking {
     this.person.last=surname;
 
   }
-
+*/
 
   public static Booking parse(String line) {
     String[] chunks = line.split(":");
@@ -33,4 +41,5 @@ public class Booking {
             chunks[2]
     );
   }
+
 }

@@ -15,8 +15,9 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class DAOBooking implements DAO<Booking> {
-  Booking bg = new Booking();
-  File file;
+
+  File file = new File("src/main/java/app/app/book.txt");
+
 
   @Override
   public Optional<Booking> get(int id) {
@@ -44,16 +45,20 @@ public class DAOBooking implements DAO<Booking> {
 
   @Override
   public void create(Booking data){
-    try{
-      int count = 1;
-      BufferedWriter bw =new BufferedWriter(new FileWriter(new File("book.txt")));
-        Collection<Booking> bookings = getAll();
-        bookings.add(data);
-        bw.write(String.valueOf(bookings));
-        count++;
+    Collection<Booking> bookings = getAll();
+    bookings.add(data);
+    write(bookings);
 
-    }catch (IOException ex){
-      ex.printStackTrace();
+  }
+
+  private void write(Collection<Booking> bookings) {
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+      for (Booking s: bookings) {
+        bw.write(s.represent());
+        bw.write("\n");
+      }
+    } catch (IOException ex) {
+      throw new RuntimeException("DAO:write:IOException", ex);
     }
   }
 
