@@ -43,6 +43,7 @@ public class Controller {
       String name = console.readLn();
       System.out.println("Enter surname");
       String surname=console.readLn();
+      service.write(name, surname);
     }else {
       System.out.println("Returning to main menu");
 

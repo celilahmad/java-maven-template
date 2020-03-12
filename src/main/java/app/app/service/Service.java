@@ -4,6 +4,7 @@ package app.app.service;
 import app.app.dao.DAO;
 import app.app.dao.DAOBooking;
 import app.app.dao.DaoFlight;
+import app.app.entity.Booking;
 import app.app.entity.Flight;
 import app.app.io.ConsoleMain;
 
@@ -13,7 +14,8 @@ import java.util.function.Predicate;
 
 public class Service {
   ConsoleMain con;
-  DAO<Flight> dao = new DaoFlight("allFlights.txt");
+  DAO<Flight> dao = new DaoFlight("src/main/java/app/app/allFlights.txt");
+  DAO<Booking> bookingDAO = new DAOBooking();
   DAOBooking daoBooking;
 
   public Service(DAOBooking daoBooking) {
@@ -32,5 +34,9 @@ public class Service {
   public void booking(String destination, String date, int seats) {
     System.out.println(dao.getAllBy(p->((p.destination.equals(destination)&&p.date.equals(date))&&Integer.parseInt(p.seats)>seats)));
 
+  }
+
+  public void write(String name, String surname) {
+    bookingDAO.create(new Booking(name, surname));
   }
 }
